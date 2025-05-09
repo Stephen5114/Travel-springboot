@@ -1,12 +1,25 @@
 package com.example.controller;
 
+import com.example.common.Result;
+import com.example.service.AdminService;
+import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class webcontroller {
+    @Resource
+    AdminService adminService;
+
     @GetMapping("/hello")
-    public String hello() {
-        return "hello";
+    public Result hello() {
+        int a = 1/0;
+        return Result.success("hello");
+    }
+
+    @GetMapping("/admin")
+    public Result admin(String name){
+        String admin = adminService.admin(name);
+        return Result.success(admin);
     }
 }

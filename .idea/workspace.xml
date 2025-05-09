@@ -38,8 +38,8 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.SpringbootApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "Spring Boot.SpringbootApplication.executor": "Debug",
+    "git-widget-placeholder": "v1.0",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Administrator/code2025",
     "node.js.detected.package.eslint": "true",
@@ -120,6 +120,7 @@
       <workItem from="1746268270300" duration="3903000" />
       <workItem from="1746280678832" duration="2855000" />
       <workItem from="1746286968324" duration="1635000" />
+      <workItem from="1746768746383" duration="3797000" />
     </task>
     <servers />
   </component>
