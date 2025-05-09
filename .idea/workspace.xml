@@ -14,6 +14,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Vue Options API Component" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -38,7 +39,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.SpringbootApplication.executor": "Debug",
+    "Spring Boot.SpringbootApplication.executor": "Run",
     "git-widget-placeholder": "v1.0",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Administrator/code2025",
@@ -48,7 +49,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
-    "settings.editor.selected.configurable": "File.Encoding",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   },
@@ -121,6 +122,7 @@
       <workItem from="1746280678832" duration="2855000" />
       <workItem from="1746286968324" duration="1635000" />
       <workItem from="1746768746383" duration="3797000" />
+      <workItem from="1746788170401" duration="5660000" />
     </task>
     <servers />
   </component>
