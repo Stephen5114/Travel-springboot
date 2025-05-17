@@ -39,9 +39,9 @@
           <el-sub-menu index="1">
             <template #title>
               <el-icon><location /></el-icon>
-              <span>数据管理</span>
+              <span>user management</span>
             </template>
-            <el-menu-item index="/manager/about">关于数据</el-menu-item>
+            <el-menu-item index="/manager/admin">Manager Info</el-menu-item>
           </el-sub-menu>
         </el-menu>
       </div>
