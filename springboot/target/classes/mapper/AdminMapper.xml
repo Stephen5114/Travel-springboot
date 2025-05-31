@@ -5,7 +5,12 @@
 <mapper namespace="com.example.mapper.AdminMapper">
 
     <select id="selectAll" resultType="com.example.entity.Admin">
-        SELECT * FROM admin ORDER BY id DESC
+        SELECT * FROM admin
+        <where>
+            <if test="username != null and username != ''">username like concat('%', #{username}, '%') </if>
+            <if test="name != null and name != ''">and name like concat('%', #{name}, '%') </if>
+        </where>
+        ORDER BY id DESC
     </select>
 
 </mapper>

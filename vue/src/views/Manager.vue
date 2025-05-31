@@ -7,7 +7,7 @@
         <span style="font-size: 20px; font-weight: bold; color: #f1f1f1; margin-left: 5px">小白做毕设2025</span>
       </div>
       <div style="flex: 1; display: flex; align-items: center; padding-left: 20px; border-bottom: 1px solid #ddd">
-        首页 / 数据分析
+        <span style="margin-right: 5px;cursor: pointer" @click="router.push('/manager/home')">首页</span> / <span style="margin-left: 5px">{{router.currentRoute.value.meta.name}}</span>
       </div>
       <div style="width: fit-content; padding-right: 20px; display: flex; align-items: center; border-bottom: 1px solid #ddd">
         <el-dropdown>
@@ -39,9 +39,9 @@
           <el-sub-menu index="1">
             <template #title>
               <el-icon><location /></el-icon>
-              <span>数据管理</span>
+              <span>user management</span>
             </template>
-            <el-menu-item index="/manager/about">关于数据</el-menu-item>
+            <el-menu-item index="/manager/admin">Manager Info</el-menu-item>
           </el-sub-menu>
         </el-menu>
       </div>
