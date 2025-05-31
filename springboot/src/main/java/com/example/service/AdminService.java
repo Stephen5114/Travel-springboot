@@ -15,6 +15,10 @@ public class AdminService {
     @Resource
     AdminMapper adminMapper;
 
+    public void add(Admin admin) {
+        adminMapper.insert(admin);
+    }
+
     public String admin(String name){
         if(name.equals("admin")){
             return "admin";
@@ -32,4 +36,6 @@ public class AdminService {
         List<Admin> list = adminMapper.selectAll(admin);
         return PageInfo.of(list);
     }
+
+
 }

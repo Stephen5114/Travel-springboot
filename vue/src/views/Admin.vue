@@ -8,7 +8,7 @@
     </div>
     <div class="card" style="margin-bottom: 5px">
       <el-button type="danger">批量删除</el-button>
-      <el-button type="primary">新 增</el-button>
+      <el-button type="primary" @click="handleAdd">新 增</el-button>
       <el-button type="success">批量导入</el-button>
       <el-button type="info">批量导出</el-button>
     </div>
@@ -33,6 +33,29 @@
           @size-change="load"
       />
     </div>
+
+    <el-dialog title="管理员信息" v-model="data.formVisible" width="30%" destroy-on-close>
+      <el-form ref="formRef" :model="data.form" :rules="data.rules" label-width="80px" style="padding: 20px 30px 10px 0">
+        <el-form-item prop="username" label="账号">
+          <el-input v-model="data.form.username" autocomplete="off" />
+        </el-form-item>
+        <el-form-item prop="name" label="名称">
+          <el-input v-model="data.form.name" autocomplete="off" />
+        </el-form-item>
+        <el-form-item prop="phone" label="电话">
+          <el-input v-model="data.form.phone" autocomplete="off" />
+        </el-form-item>
+        <el-form-item prop="email" label="邮箱">
+          <el-input v-model="data.form.email" autocomplete="off" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="data.formVisible = false">取 消</el-button>
+          <el-button type="primary" @click="save">保 存</el-button>
+        </div>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -49,7 +72,9 @@ const data = reactive({
   pageNum: 1,
   pageSize: 5,
   total: 0,
-  tableData: []
+  tableData: [],
+  formVisible: false,
+  form: {}
 })
 
 const load = () => {
@@ -77,6 +102,21 @@ const reset = () => {
   data.name = null
   data.username = null
   load()
+}
+
+const handleAdd = () => {
+  data.formVisible = true
+  data.form = {}
+}
+
+const add = () => {
+  request.post('/admin/add', data.form).then(res => {
+    if (res.code === '200') {
+      ElMessage.success('ADD SUCCESS')
+    }else{
+      ElMessage.error(res.msg)
+    }
+  })
 }
 
 </script>

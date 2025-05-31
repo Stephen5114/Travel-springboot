@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface AdminMapper {
     List<Admin> selectAll(Admin admin);
+
+    void insert(Admin admin);
 }

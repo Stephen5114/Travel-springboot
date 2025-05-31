@@ -40,7 +40,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.SpringbootApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;v2.1&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v2.2&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/code2025&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -134,6 +134,8 @@
       <workItem from="1748516732081" duration="5488000" />
       <workItem from="1748616880434" duration="2488000" />
       <workItem from="1748656229221" duration="2288000" />
+      <workItem from="1748697437436" duration="668000" />
+      <workItem from="1748700514179" duration="6122000" />
     </task>
     <servers />
   </component>
