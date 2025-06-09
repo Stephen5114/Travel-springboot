@@ -1,5 +1,6 @@
 package com.example.service;
 
+import cn.hutool.core.util.StrUtil;
 import com.example.entity.Admin;
 import com.example.exception.CustomException;
 import com.example.mapper.AdminMapper;
@@ -16,6 +17,14 @@ public class AdminService {
     AdminMapper adminMapper;
 
     public void add(Admin admin) {
+        Admin dbAdmin = adminMapper.selectByUsername(admin.getUsername());
+        if(dbAdmin != null) {
+            throw new CustomException("duplicate username!!!!!!!!!!!!!");
+        }
+        //default password
+        if (StrUtil.isBlank(admin.getUsername())) {
+            admin.setPassword("admin");
+        }
         adminMapper.insert(admin);
     }
 
@@ -38,4 +47,17 @@ public class AdminService {
     }
 
 
+    public void update(Admin admin) {
+        adminMapper.updateByid(admin);
+    }
+
+    public void deleteById(Integer id) {
+        adminMapper.deleteById(id);
+    }
+
+    public void deleteBatch(List<Admin> list) {
+        for (Admin admin : list) {
+            this.deleteById(admin.getId());
+        }
+    }
 }

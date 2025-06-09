@@ -4,7 +4,7 @@
     <div style="height: 60px; display: flex;">
       <div style="width: 240px; display: flex; align-items: center; padding-left: 20px; background-color: #3a456b">
         <img style="width: 40px; height: 40px; border-radius: 50%" src="@/assets/imgs/logo.png" alt="">
-        <span style="font-size: 20px; font-weight: bold; color: #f1f1f1; margin-left: 5px">小白做毕设2025</span>
+        <span style="font-size: 20px; font-weight: bold; color: #f1f1f1; margin-left: 5px">My travelling</span>
       </div>
       <div style="flex: 1; display: flex; align-items: center; padding-left: 20px; border-bottom: 1px solid #ddd">
         <span style="margin-right: 5px;cursor: pointer" @click="router.push('/manager/home')">首页</span> / <span style="margin-left: 5px">{{router.currentRoute.value.meta.name}}</span>

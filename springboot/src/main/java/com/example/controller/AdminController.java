@@ -22,6 +22,24 @@ public class AdminController {
         return Result.success();
     }
 
+    @PutMapping("/update")
+    public Result update(@RequestBody Admin admin) {
+        adminService.update(admin);
+        return Result.success();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public Result delete(@PathVariable Integer id) {
+        adminService.deleteById(id);
+        return Result.success();
+    }
+
+    @DeleteMapping("/deleteBatch")
+    public Result deleteBatch(@RequestBody List<Admin> list) {
+        adminService.deleteBatch(list);
+        return Result.success();
+    }
+
     @GetMapping("/selectAll")
     public Result selectAll() {
         List<Admin> adminList = adminService.selectAll();
