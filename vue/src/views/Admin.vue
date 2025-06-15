@@ -9,8 +9,15 @@
     <div class="card" style="margin-bottom: 5px">
       <el-button type="danger" @click="deleteBatch">批量删除</el-button>
       <el-button type="primary" @click="handleAdd">新 增</el-button>
-      <el-button type="success">批量导入</el-button>
-      <el-button type="info">批量导出</el-button>
+      <el-upload
+          style="display: inline-block; margin-left: 10px"
+          action="http://localhost:9999/admin/import"
+          :show-file-list="false"
+          :on-success="handleImportSuccess"
+      >
+        <el-button type="success">批量导入</el-button>
+      </el-upload>
+      <el-button type="info" @click="exportData">批量导出</el-button>
     </div>
 
     <div class="card" style="margin-bottom: 5px">
@@ -96,7 +103,8 @@ const data = reactive({
       {required: true, message: 'Plea enter the email address', trigger: 'blur'}
     ]
   },
-  rows: []
+  rows: [],
+  ids: []
 })
 
 const formRef = ref()
@@ -190,6 +198,7 @@ const del = (id) => {
 
 const handleSelectionChange = (rows) => {
   data.rows = rows
+  data.ids = data.rows.map(v => v.id)
 }
 
 const deleteBatch = () => {
@@ -208,6 +217,21 @@ const deleteBatch = () => {
       }
     })
   }).catch(err => {})
+}
+
+const exportData = () => {
+  let idsStr = data.ids.join(",")
+  let url = `http://localhost:9999/admin/export?username=${data.username === null ? '' : data.username}&name=${data.name === null ? '' : data.name}&ids=${idsStr}`
+  window.open(url)
+}
+
+const handleImportSuccess = (res) => {
+  if (res.code === '200') {
+    ElMessage.success("The batch file was imported successfully.")
+    load()
+  } else {
+    ElMessage.error(res.msg)
+  }
 }
 
 </script>

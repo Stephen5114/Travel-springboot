@@ -18,6 +18,12 @@
         <where>
             <if test="username != null and username != ''">username like concat('%', #{username}, '%') </if>
             <if test="name != null and name != ''">and name like concat('%', #{name}, '%') </if>
+            <if test="ids != null and ids != ''">
+                and id in
+                <foreach collection="idsArr" open="(" close=")" separator="," item="id">
+                    #{id}
+                </foreach>
+            </if>
         </where>
         ORDER BY id DESC
     </select>

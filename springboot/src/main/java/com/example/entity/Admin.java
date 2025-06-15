@@ -7,6 +7,24 @@ public class Admin {
     private String phone;
     private String email;
     private String name;
+    private String ids;
+    private String[] idsArr;
+
+    public String getIds() {
+        return ids;
+    }
+
+    public void setIds(String ids) {
+        this.ids = ids;
+    }
+
+    public String[] getIdsArr() {
+        return idsArr;
+    }
+
+    public void setIdsArr(String[] idsArr) {
+        this.idsArr = idsArr;
+    }
 
     public Integer getId() {
         return id;
