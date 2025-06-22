@@ -14,6 +14,10 @@ const router = createRouter({
       ]
     },
     {
+      path: '/login',
+      component: import('../views/Login.vue')
+    },
+    {
       path: '/notfound',
       component: import('../views/404.vue')
     },
