@@ -11,7 +11,7 @@
       <el-button type="primary" @click="handleAdd">新 增</el-button>
       <el-upload
           style="display: inline-block; margin-left: 10px"
-          action="http://localhost:9999/admin/import"
+          action="http://localhost:9999/user/import"
           :show-file-list="false"
           :on-success="handleImportSuccess"
       >
@@ -48,7 +48,7 @@
       />
     </div>
 
-    <el-dialog title="管理员信息" v-model="data.formVisible" width="30%" destroy-on-close>
+    <el-dialog title="用户信息" v-model="data.formVisible" width="30%" destroy-on-close>
       <el-form ref="formRef" :model="data.form" :rules="data.rules" label-width="80px" style="padding: 20px 30px 10px 0">
         <el-form-item prop="username" label="账号">
           <el-input v-model="data.form.username" autocomplete="off" placeholder="Please enter the account" />
@@ -110,7 +110,7 @@ const data = reactive({
 const formRef = ref()
 
 const load = () => {
-  request.get('/admin/selectPage', {
+  request.get('/user/selectPage', {
     params: {
       pageNum: data.pageNum,
       pageSize: data.pageSize,
@@ -144,7 +144,7 @@ const handleAdd = () => {
 const add = () => {
   formRef.value.validate((valid) => {
     if (valid){
-      request.post('/admin/add', data.form).then(res => {
+      request.post('/user/add', data.form).then(res => {
         if (res.code === '200') {
           ElMessage.success('ADD SUCCESS')
           data.formVisible = false
@@ -166,7 +166,7 @@ const handleEdit = (row) => {
 const update = () => {
   formRef.value.validate((valid) => {
     if (valid){
-      request.put('/admin/update', data.form).then(res => {
+      request.put('/user/update', data.form).then(res => {
         if (res.code === '200') {
           ElMessage.success('UPDATE SUCCESS')
           data.formVisible = false
@@ -185,7 +185,7 @@ const save = () => {
 
 const del = (id) => {
   ElMessageBox.confirm('删除后无法恢复，您确认删除吗？', '删除确认', { type: 'warning' }).then(res => {
-    request.delete('/admin/delete/' + id).then(res => {
+    request.delete('/user/delete/' + id).then(res => {
       if (res.code === '200') {
         ElMessage.success('删除成功')
         load()
@@ -208,7 +208,7 @@ const deleteBatch = () => {
   }
 
   ElMessageBox.confirm('删除后无法恢复，您确认删除吗？', '删除确认', { type: 'warning' }).then(res => {
-    request.delete('/admin/deleteBatch', {data: data.rows}).then(res => {
+    request.delete('/user/deleteBatch', {data: data.rows}).then(res => {
       if (res.code === '200') {
         ElMessage.success('批量删除成功')
         load()
@@ -221,7 +221,7 @@ const deleteBatch = () => {
 
 const exportData = () => {
   let idsStr = data.ids.join(",")
-  let url = `http://localhost:9999/admin/export?username=${data.username === null ? '' : data.username}&name=${data.name === null ? '' : data.name}&ids=${idsStr}`
+  let url = `http://localhost:9999/user/export?username=${data.username === null ? '' : data.username}&name=${data.name === null ? '' : data.name}&ids=${idsStr}`
   window.open(url)
 }
 

@@ -1,6 +1,7 @@
 package com.example.service;
 
 import cn.hutool.core.util.StrUtil;
+import com.example.entity.Account;
 import com.example.entity.Admin;
 import com.example.exception.CustomException;
 import com.example.mapper.AdminMapper;
@@ -22,9 +23,10 @@ public class AdminService {
             throw new CustomException("duplicate username!!!!!!!!!!!!!");
         }
         //default password
-        if (StrUtil.isBlank(admin.getUsername())) {
+        if (StrUtil.isBlank(admin.getPassword())) {
             admin.setPassword("admin");
         }
+        admin.setRole("ADMIN");
         adminMapper.insert(admin);
     }
 
@@ -61,12 +63,12 @@ public class AdminService {
         }
     }
 
-    public Admin login(Admin admin) {
-        Admin dbAdmin = adminMapper.selectByUsername(admin.getUsername());
+    public Admin login(Account account) {
+        Admin dbAdmin = adminMapper.selectByUsername(account.getUsername());
         if(dbAdmin == null) {
             throw new CustomException("账号不存在");
         }
-        if(!dbAdmin.getPassword().equals(admin.getPassword())) {
+        if(!dbAdmin.getPassword().equals(account.getPassword())) {
             throw new CustomException("账号或密码错误");
         }
         return dbAdmin;

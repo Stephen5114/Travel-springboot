@@ -1,6 +1,6 @@
 package com.example.entity;
 
-public class Admin extends Account {
+public class User extends Account {
     private Integer id;
     private String username;
     private String password;
@@ -11,16 +11,16 @@ public class Admin extends Account {
     private String[] idsArr;
     private String role;
 
+    public String getIds() {
+        return ids;
+    }
+
     public String getRole() {
         return role;
     }
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public String getIds() {
-        return ids;
     }
 
     public void setIds(String ids) {

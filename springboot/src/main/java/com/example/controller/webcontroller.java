@@ -1,8 +1,11 @@
 package com.example.controller;
 
 import com.example.common.Result;
+import com.example.entity.Account;
 import com.example.entity.Admin;
+import com.example.entity.User;
 import com.example.service.AdminService;
+import com.example.service.UserService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class webcontroller {
     @Resource
     AdminService adminService;
+
+    @Resource
+    UserService userService;
 
     @GetMapping("/hello")
     public Result hello() {
@@ -27,8 +33,20 @@ public class webcontroller {
     }
 
     @PostMapping("/login")
-    public Result login(@RequestBody Admin admin){
-        Admin dbAdmin = adminService.login(admin);
-        return Result.success(dbAdmin);
+    public Result login(@RequestBody Account account){
+        Account dbAccount = null;
+        if ("ADMIN".equals(account.getRole())){
+            dbAccount = adminService.login(account);
+        } else if ("USER".equals(account.getRole())) {
+            dbAccount = userService.login(account);
+        }
+
+        return Result.success(dbAccount);
+    }
+
+    @PostMapping("/register")
+    public Result register(@RequestBody User user){
+        userService.register(user);
+        return Result.success();
     }
 }

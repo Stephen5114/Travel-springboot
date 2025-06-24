@@ -13,7 +13,7 @@
         <el-dropdown>
           <div style="display: flex; align-items: center">
             <img style="width: 40px; height: 40px; border-radius: 50%" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" alt="">
-            <span style="margin-left: 5px">管理员</span>
+            <span style="margin-left: 5px">{{ data.user?.name }}</span>
           </div>
           <template #dropdown>
             <el-dropdown-menu>
@@ -42,6 +42,7 @@
               <span>user management</span>
             </template>
             <el-menu-item index="/manager/admin">Manager Info</el-menu-item>
+            <el-menu-item index="/manager/user">User Info</el-menu-item>
           </el-sub-menu>
         </el-menu>
       </div>
@@ -61,20 +62,18 @@
 
 <script setup>
 import router from "@/router/index.js";
+import {reactive} from "vue";
+
+const data = reactive({
+  user: JSON.parse(localStorage.getItem('code_user') || "{}")
+})
 
 const logout = () => {
   localStorage.removeItem("code_user")
   location.href = '/login'
 }
 
-let userStr = localStorage.getItem('code_user')
-console.log(userStr)
-if (userStr){
-  let user = JSON.parse(userStr)
-  if (!user.id) {
-    location.href = '/login'
-  }
-} else {
+if (!data.user?.id) {
   location.href = '/login'
 }
 
