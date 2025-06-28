@@ -80,4 +80,8 @@ public class UserService {
     public void register(User user) {
         this.add(user);
     }
+
+    public User selectById(String id) {
+        return userMapper.selectById(id);
+    }
 }

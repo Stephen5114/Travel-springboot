@@ -10,6 +10,17 @@ public class Admin extends Account {
     private String ids;
     private String[] idsArr;
     private String role;
+    private String token;
+
+    @Override
+    public String getToken() {
+        return token;
+    }
+
+    @Override
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public String getRole() {
         return role;

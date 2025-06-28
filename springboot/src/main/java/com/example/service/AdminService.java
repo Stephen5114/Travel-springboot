@@ -5,6 +5,7 @@ import com.example.entity.Account;
 import com.example.entity.Admin;
 import com.example.exception.CustomException;
 import com.example.mapper.AdminMapper;
+import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
@@ -71,6 +72,12 @@ public class AdminService {
         if(!dbAdmin.getPassword().equals(account.getPassword())) {
             throw new CustomException("账号或密码错误");
         }
+        String token = TokenUtils.createToken(dbAdmin.getId() + "-" + "ADMIN", dbAdmin.getPassword());
+        dbAdmin.setToken(token);
         return dbAdmin;
+    }
+
+    public Admin selectById(String id) {
+        return adminMapper.selectById(id);
     }
 }

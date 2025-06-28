@@ -4,6 +4,7 @@ import com.example.common.Result;
 import com.example.entity.Account;
 import com.example.entity.Admin;
 import com.example.entity.User;
+import com.example.exception.CustomException;
 import com.example.service.AdminService;
 import com.example.service.UserService;
 import jakarta.annotation.Resource;
@@ -39,6 +40,8 @@ public class webcontroller {
             dbAccount = adminService.login(account);
         } else if ("USER".equals(account.getRole())) {
             dbAccount = userService.login(account);
+        } else {
+            throw new CustomException("Invalid request!");
         }
 
         return Result.success(dbAccount);
