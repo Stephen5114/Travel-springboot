@@ -32,7 +32,7 @@ public class JWTInterceptor implements HandlerInterceptor {
             token = request.getParameter("token");
         }
         if (StrUtil.isBlank(token)) {
-            throw new CustomException("401", "There is no token");
+            throw new CustomException("There is no token", "401");
         }
 
         Account account = null;

@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Vue Options API Component" />
         <option value="Class" />
+        <option value="Vue Options API Component" />
       </list>
     </option>
   </component>
@@ -77,7 +77,7 @@
       <recent name="com.example.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="Spring Boot.SpringbootApplication">
     <configuration name="SpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="springboot" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.SpringbootApplication" />
@@ -103,8 +103,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="Spring Boot.SpringbootApplication" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -165,6 +165,21 @@
       <workItem from="1750733014166" duration="11104000" />
       <workItem from="1750818276056" duration="1177000" />
       <workItem from="1751107329083" duration="13836000" />
+      <workItem from="1755911326245" duration="18949000" />
+      <workItem from="1756047123202" duration="5281000" />
+      <workItem from="1756118653571" duration="7412000" />
+      <workItem from="1756292032736" duration="8322000" />
+      <workItem from="1756311472688" duration="1805000" />
+      <workItem from="1756401026029" duration="47000" />
+      <workItem from="1756447899098" duration="2926000" />
+      <workItem from="1756464155278" duration="11853000" />
+      <workItem from="1756521184503" duration="1898000" />
+      <workItem from="1756535165651" duration="2944000" />
+      <workItem from="1756550306359" duration="13519000" />
+      <workItem from="1756629355209" duration="4567000" />
+      <workItem from="1756637689639" duration="6181000" />
+      <workItem from="1756647952210" duration="5000" />
+      <workItem from="1756648103311" duration="31000" />
     </task>
     <servers />
   </component>

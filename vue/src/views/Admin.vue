@@ -24,6 +24,11 @@
       <el-table :data="data.tableData" style="width: 100%" @selection-change="handleSelectionChange"
                 :header-cell-style="{ color: '#333', backgroundColor: '#eaf4ff' }">
         <el-table-column type="selection" width="55" />
+        <el-table-column label="头像" >
+          <template #default="scope">
+            <el-image :src="scope.row.avatar" :preview-src-list="[scope.row.avatar]" :preview-teleported="true" style="width: 40px; height: 40px; border-radius: 50%; display: block" />
+          </template>
+        </el-table-column>
         <el-table-column prop="username" label="Account" />
         <el-table-column prop="name" label="Name" />
         <el-table-column prop="phone" label="PhoneNumber" />
@@ -62,6 +67,16 @@
         <el-form-item prop="email" label="邮箱">
           <el-input v-model="data.form.email" autocomplete="off" placeholder="Please enter the email address" />
         </el-form-item>
+        <el-form-item prop="avatar" label="头像">
+          <el-upload
+              action="http://localhost:9999/files/upload"
+              :headers="{token: data.user.token}"
+              :on-success="handleAvatarSuccess"
+              list-type="picture"
+          >
+            <el-button type="primary">Upload Avatar</el-button>
+          </el-upload>
+        </el-form-item>
       </el-form>
       <template #footer>
         <div class="dialog-footer">
@@ -81,6 +96,7 @@ import request from "@/utils/request.js";
 import {ElMessage, ElMessageBox} from "element-plus"
 
 const data = reactive({
+  user: JSON.parse(localStorage.getItem('code_user') || '{}'),
   username: null,
   name: null,
   pageNum: 1,
@@ -222,6 +238,7 @@ const deleteBatch = () => {
 const exportData = () => {
   let idsStr = data.ids.join(",")
   let url = `http://localhost:9999/admin/export?username=${data.username === null ? '' : data.username}&name=${data.name === null ? '' : data.name}&ids=${idsStr}`
+      + `&token=${data.user.token}`
   window.open(url)
 }
 
@@ -233,6 +250,10 @@ const handleImportSuccess = (res) => {
     ElMessage.error(res.msg)
   }
 }
+const handleAvatarSuccess = (res) => {
+  data.form.avatar = res.data
+}
+
 
 </script>
 

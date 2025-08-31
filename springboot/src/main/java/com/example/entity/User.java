@@ -10,6 +10,28 @@ public class User extends Account {
     private String ids;
     private String[] idsArr;
     private String role;
+    private String token;
+    private String avatar;
+
+    @Override
+    public String getAvatar() {
+        return avatar;
+    }
+
+    @Override
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    @Override
+    public String getToken() {
+        return token;
+    }
+
+    @Override
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public String getIds() {
         return ids;

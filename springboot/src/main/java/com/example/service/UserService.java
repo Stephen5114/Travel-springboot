@@ -2,12 +2,15 @@ package com.example.service;
 
 import cn.hutool.core.util.StrUtil;
 import com.example.entity.Account;
+import com.example.entity.Admin;
 import com.example.entity.User;
 import com.example.exception.CustomException;
 import com.example.mapper.UserMapper;
+import com.example.utils.TokenUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
+import org.apache.el.parser.Token;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -74,6 +77,8 @@ public class UserService {
         if(!dbUser.getPassword().equals(account.getPassword())) {
             throw new CustomException("账号或密码错误");
         }
+        String token = TokenUtils.createToken(dbUser.getId() + "-" + "USER", dbUser.getPassword());
+        dbUser.setToken(token);
         return dbUser;
     }
 
@@ -83,5 +88,20 @@ public class UserService {
 
     public User selectById(String id) {
         return userMapper.selectById(id);
+    }
+
+    public void updatePassword(Account account) {
+        if (!account.getNewPassword().equals(account.getNew2Password())) {
+            throw new CustomException("The two passwords don't match", "500");
+        }
+
+        Account currentUser = TokenUtils.getCurrentUser();
+        if (!account.getPassword().equals(currentUser.getPassword())) {
+            throw new CustomException("The old password you entered is incorrect", "500");
+        }
+
+        User user = userMapper.selectById(currentUser.getId().toString());
+        user.setPassword(account.getNewPassword());
+        userMapper.updateByid(user);
     }
 }

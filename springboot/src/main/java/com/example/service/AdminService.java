@@ -80,4 +80,19 @@ public class AdminService {
     public Admin selectById(String id) {
         return adminMapper.selectById(id);
     }
+
+    public void updatePassword(Account account) {
+        if (!account.getNewPassword().equals(account.getNew2Password())) {
+            throw new CustomException("The two passwords don't match", "500");
+        }
+
+        Account currentUser = TokenUtils.getCurrentUser();
+        if (!account.getPassword().equals(currentUser.getPassword())) {
+            throw new CustomException("The old password you entered is incorrect", "500");
+        }
+
+        Admin admin = adminMapper.selectById(currentUser.getId().toString());
+        admin.setPassword(account.getNewPassword());
+        adminMapper.updateByid(admin);
+    }
 }

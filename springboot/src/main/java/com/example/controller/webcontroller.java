@@ -52,4 +52,15 @@ public class webcontroller {
         userService.register(user);
         return Result.success();
     }
+
+    @PostMapping("/updatePassword")
+    public Result updatePassword(@RequestBody Account account){
+        if ("ADMIN".equals(account.getRole())){
+            adminService.updatePassword(account);
+        }
+        if ("USER".equals(account.getRole())){
+            userService.updatePassword(account);
+        }
+        return Result.success();
+    }
 }
