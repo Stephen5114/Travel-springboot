@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Vue Options API Component" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,7 +40,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Spring Boot.SpringbootApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;v2.3&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;v2.5&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/code2025/vue/src/views&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -71,13 +71,13 @@
       <recent name="C:\Users\Administrator\code2025\vue\src\assets\imgs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.entity" />
-      <recent name="com.example.mapper" />
-      <recent name="com.example.service" />
       <recent name="com.example.controller" />
+      <recent name="com.example.service" />
+      <recent name="com.example.mapper" />
+      <recent name="com.example.entity" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.SpringbootApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="SpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="springboot" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.SpringbootApplication" />
@@ -103,8 +103,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.SpringbootApplication" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="Spring Boot.SpringbootApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -180,6 +180,25 @@
       <workItem from="1756637689639" duration="6181000" />
       <workItem from="1756647952210" duration="5000" />
       <workItem from="1756648103311" duration="31000" />
+      <workItem from="1756713787969" duration="18056000" />
+      <workItem from="1756802908678" duration="5068000" />
+      <workItem from="1756825099051" duration="4332000" />
+      <workItem from="1756887552907" duration="13285000" />
+      <workItem from="1757032971740" duration="1539000" />
+      <workItem from="1757049030085" duration="3019000" />
+      <workItem from="1757082668583" duration="5477000" />
+      <workItem from="1757215314720" duration="4598000" />
+      <workItem from="1757225915084" duration="4291000" />
+      <workItem from="1757303241293" duration="10353000" />
+      <workItem from="1757386251388" duration="12228000" />
+      <workItem from="1757410946433" duration="355000" />
+      <workItem from="1757470974368" duration="12745000" />
+      <workItem from="1757557521751" duration="14974000" />
+      <workItem from="1757687943748" duration="1570000" />
+      <workItem from="1757741118567" duration="4329000" />
+      <workItem from="1757818161003" duration="15427000" />
+      <workItem from="1757903383185" duration="12734000" />
+      <workItem from="1758002353540" duration="8208000" />
     </task>
     <servers />
   </component>

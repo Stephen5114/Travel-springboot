@@ -37,15 +37,26 @@
             <el-icon><House /></el-icon>
             <span>首页</span>
           </el-menu-item>
-          <el-sub-menu index="1">
+            <el-sub-menu index="1">
+              <template #title>
+                <el-icon><User /></el-icon>
+                <span>Information management</span>
+              </template>
+              <el-menu-item index="/manager/notice" v-if="data.user.role === 'ADMIN'">系统公告</el-menu-item>
+              <el-menu-item index="/manager/notice" v-else>公告信息</el-menu-item>
+              <el-menu-item index="/manager/introduction">旅游攻略</el-menu-item>
+              <el-menu-item index="/manager/category">攻略分类</el-menu-item>
+            </el-sub-menu>
+          <el-sub-menu index="2" v-if="data.user.role === 'ADMIN'">
             <template #title>
-              <el-icon><location /></el-icon>
+              <el-icon><User /></el-icon>
               <span>user management</span>
             </template>
             <el-menu-item index="/manager/admin">Manager Info</el-menu-item>
             <el-menu-item index="/manager/user">User Info</el-menu-item>
           </el-sub-menu>
         </el-menu>
+
       </div>
       <!--  菜单区域结束 -->
 

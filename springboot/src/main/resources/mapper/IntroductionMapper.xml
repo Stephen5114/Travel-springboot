@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.IntroductionMapper">
+    <insert id="insert">
+        insert into introduction (img, title, content, time, category_id, user_id)
+        values(#{img}, #{title}, #{content}, #{time}, #{categoryId}, #{userId})
+    </insert>
+
+    <update id="updateByid">
+        UPDATE introduction SET img = #{img}, title = #{title}, content = #{content}, time = #{time}, category_id = #{categoryId}, user_id = #{userId}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectAll" resultType="com.example.entity.Introduction">
+        SELECT introduction.*, user.name as userName FROM introduction
+        LEFT JOIN user on introduction.user_id = user.id
+        <where>
+            <if test="title != null and title != ''">and introduction.title like concat('%', #{title}, '%') </if>
+            <if test="userId != null">and introduction.user_id = #{userId}</if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+</mapper>

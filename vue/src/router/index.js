@@ -13,7 +13,10 @@ const router = createRouter({
         {path: 'admin', meta: {name: '管理员信息'}, component: () => import('../views/Admin.vue')},
         {path: 'user', meta: {name: '用户信息'}, component: () => import('../views/User.vue')},
         {path: 'person', meta: {name: '个人信息'}, component: () => import('../views/Person.vue')},
-        {path: 'updatePassword', meta: {name: '修改密码'}, component: () => import('../views/UpdatePassword.vue')}
+        {path: 'updatePassword', meta: {name: '修改密码'}, component: () => import('../views/UpdatePassword.vue')},
+        {path: 'notice', meta: {name: '系统公告'}, component: () => import('../views/Notice.vue')},
+        {path: 'introduction', meta: {name: '旅游攻略'}, component: () => import('../views/Introduction.vue')},
+        {path: 'category', meta: {name: '攻略分类'}, component: () => import('../views/Category.vue')}
       ]
     },
     {
