@@ -24,4 +24,4 @@ hs_err_pid*
 replay_pid*
 
 # Node.js dependencies
-node_modules/
+vue/node_modules/
